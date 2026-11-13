@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shivangi Singh — Frontend Developer | Full-Stack Developer</title>
+    <meta
+      name="description"
+      content="Portfolio of Shivangi Singh, a Frontend Developer and Computer Science graduate specializing in React.js, Tailwind CSS, JavaScript, and MERN stack applications."
+    />
+    <meta name="author" content="Shivangi Singh" />
+    <meta name="keywords" content="Shivangi Singh, Frontend Developer, Full-Stack Developer, React.js, MERN Stack, Software Engineer, Portfolio" />
+    
+    <!-- Favicon Suite -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=2" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2" />
+    <link rel="shortcut icon" href="/favicon.ico?v=2" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Mobile Theme Color for Browser Chrome -->
+    <meta name="theme-color" content="#09090B" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#FAFAFA" media="(prefers-color-scheme: light)" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Shivangi Singh — Frontend Developer | Full-Stack Developer" />
+    <meta
+      property="og:description"
+      content="Portfolio of Shivangi Singh — Building responsive, user-focused web applications with React.js, Tailwind CSS, and MERN stack."
+    />
+    <meta property="og:url" content="https://shivangi-portfolio.vercel.app/" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Shivangi Singh — Frontend Developer | Full-Stack Developer" />
+    <meta
+      name="twitter:description"
+      content="Portfolio of Shivangi Singh — Building responsive, user-focused web applications with React.js, Tailwind CSS, and MERN stack."
+    />
+
+    <!-- Zero-Flash Theme Bootstrapper -->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('portfolio-theme');
+          var systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (stored === 'dark' || (!stored && systemDark) || !stored) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        } catch (e) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+
+    <!-- JSON-LD Person Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Shivangi Singh",
+        "jobTitle": "Frontend Developer",
+        "url": "https://shivangi-portfolio.vercel.app",
+        "sameAs": [
+          "https://github.com/shivangi792004",
+          "https://linkedin.com/in/shivangisingh04/"
+        ],
+        "knowsAbout": [
+          "React.js",
+          "JavaScript",
+          "Tailwind CSS",
+          "Node.js",
+          "Express.js",
+          "MongoDB",
+          "REST APIs",
+          "Data Structures & Algorithms"
+        ]
+      }
+    </script>
+  </head>
+  <body class="bg-background-light text-zinc-900 dark:bg-background dark:text-zinc-100 antialiased selection:bg-accent-500/20 selection:text-accent-400">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
