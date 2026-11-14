@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { SectionContainer } from '../layout/SectionContainer';
 import { Card } from '../ui/Card';
 import { Button } from '../ui/Button';
+import { ThankYouModal } from '../ui/ThankYouModal';
 import { profile } from '../../data/profile';
 import { links } from '../../data/links';
 import emailjs from '@emailjs/browser';
@@ -50,6 +51,25 @@ export const ContactSection: React.FC = () => {
   const [statusMessage, setStatusMessage] = useState('');
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
+  const [isThankYouOpen, setIsThankYouOpen] = useState(false);
+  const [submittedDetails, setSubmittedDetails] = useState({
+    name: '',
+    email: '',
+    subject: '',
+  });
+
+  const handleResetForm = () => {
+    setFormData({
+      name: '',
+      email: '',
+      subject: '',
+      message: '',
+      _gotcha: '',
+    });
+    setErrors({});
+    setStatus('idle');
+    setStatusMessage('');
+  };
 
   const copyEmailToClipboard = async () => {
     try {
@@ -176,6 +196,13 @@ export const ContactSection: React.FC = () => {
       });
 
       if (response.ok) {
+        const submitted = {
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+        };
+        setSubmittedDetails(submitted);
+        setIsThankYouOpen(true);
         localStorage.setItem('last_contact_submission', Date.now().toString());
         setStatus('success');
         setStatusMessage(
@@ -224,6 +251,13 @@ export const ContactSection: React.FC = () => {
           publicKey
         );
 
+        const submitted = {
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+        };
+        setSubmittedDetails(submitted);
+        setIsThankYouOpen(true);
         localStorage.setItem('last_contact_submission', Date.now().toString());
         setStatus('success');
         setStatusMessage(
@@ -584,6 +618,16 @@ export const ContactSection: React.FC = () => {
           </Card>
         </div>
       </div>
+
+      {/* Animated Gorgeous Thank You Celebration Modal */}
+      <ThankYouModal
+        isOpen={isThankYouOpen}
+        onClose={() => setIsThankYouOpen(false)}
+        senderName={submittedDetails.name}
+        senderEmail={submittedDetails.email}
+        subject={submittedDetails.subject}
+        onResetForm={handleResetForm}
+      />
     </SectionContainer>
   );
 };
