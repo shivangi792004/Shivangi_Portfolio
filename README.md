@@ -74,7 +74,7 @@ Shivangi_Portfolio/
 *Full-Stack Healthcare & Appointment Platform*
 - **Stack**: React.js, Node.js, Express.js, MongoDB, JWT, bcrypt, REST APIs
 - **Features**: Patient and doctor appointment booking, scheduling, medical record management, and secure role-based access control.
-- **Links**: [GitHub Repository](https://github.com/shivangi792004/HospCare) · [Live Demo](shivangi-portfolio-virid.vercel.app)
+- **Links**: [GitHub Repository](https://github.com/shivangi792004/HospCare) · [Live Demo](hosp-care-qoov.vercel.app/)
 
 ### 2. MERN Blog — Full-Stack Publishing Platform
 *Responsive Blogging & Content Management System*
