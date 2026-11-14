@@ -165,11 +165,51 @@ export const ContactSection: React.FC = () => {
     setStatus('idle');
     setStatusMessage('');
 
+    // Tier 1: Attempt Vercel Serverless Function with Gmail SMTP
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        localStorage.setItem('last_contact_submission', Date.now().toString());
+        setStatus('success');
+        setStatusMessage(
+          'Thank you! Your message has been sent directly to Shivangi via Gmail. She will get back to you shortly.'
+        );
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: '',
+          _gotcha: '',
+        });
+        setIsSubmitting(false);
+        return;
+      }
+
+      const resData = await response.json().catch(() => ({}));
+      if (resData.unconfigured) {
+        console.info(
+          'Vercel SMTP endpoint awaiting MAIL_PASSWORD; proceeding to fallback dispatch.'
+        );
+      }
+    } catch (apiErr) {
+      console.warn(
+        'Serverless endpoint /api/contact unavailable (local or non-Vercel environment); falling back:',
+        apiErr
+      );
+    }
+
     const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
     const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-    // If EmailJS env vars are configured, attempt direct send
+    // Tier 2: If EmailJS env vars are configured, attempt EmailJS send
     if (serviceId && templateId && publicKey) {
       try {
         await emailjs.send(
@@ -206,7 +246,7 @@ export const ContactSection: React.FC = () => {
       }
     }
 
-    // Graceful fallback to mailto
+    // Tier 3: Graceful fallback to mailto
     localStorage.setItem('last_contact_submission', Date.now().toString());
     const mailtoUrl = `mailto:${profile.email}?subject=${encodeURIComponent(
       `[Portfolio] ${formData.subject}`
