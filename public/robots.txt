@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://shivangi-portfolio.vercel.app/sitemap.xml
+Sitemap: https://shivangi-portfolio-virid.vercel.app/sitemap.xml
 

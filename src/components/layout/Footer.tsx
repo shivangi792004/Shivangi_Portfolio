@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUp, Github, Linkedin, Mail } from 'lucide-react';
+import { ArrowUp, Github, Linkedin, Mail, Phone, Code2 } from 'lucide-react';
 import { Container } from './Container';
 import { links } from '../../data/links';
 import { profile } from '../../data/profile';
@@ -55,6 +55,27 @@ export const Footer: React.FC = () => {
                 aria-label="Send Email"
               >
                 <Mail className="w-4 h-4" />
+              </a>
+            )}
+            {profile.phone && (
+              <a
+                href={`tel:+${profile.phone.replace(/\D/g, '')}`}
+                className="p-2 rounded-lg text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors"
+                aria-label={`Call Shivangi Singh at ${profile.phone}`}
+              >
+                <Phone className="w-4 h-4" />
+              </a>
+            )}
+            {links.leetCode && (
+              <a
+                href={links.leetCode}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-lg text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors"
+                aria-label="LeetCode Profile (300+ Problems)"
+                title="LeetCode Profile"
+              >
+                <Code2 className="w-4 h-4" />
               </a>
             )}
 
