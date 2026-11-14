@@ -88,8 +88,8 @@ Shivangi_Portfolio/
 
 - **Total Solved**: 200+ Data Structures & Algorithms challenges
 - **Profiles**:
-  - [LeetCode Profile (@shivangi792004)](https://leetcode.com/u/shivangi792004/)
-  - [HackerRank Profile (@shivangi792004)](https://www.hackerrank.com/profile/shivangi792004)
+  - [LeetCode Profile (@shivangisingh8688)](https://leetcode.com/u/shivangisingh8688/)
+  - [HackerRank Profile (@shivangisingh861)](https://www.hackerrank.com/profile/shivangisingh861)
 - **Core Topics**: Arrays, Two Pointers, Strings, Linked Lists, Trees, Graphs, Dynamic Programming, and C++ STL.
 
 ---
@@ -151,3 +151,4 @@ Shivangi_Portfolio/
 ## 📄 License
 
 This project is open-source and available under the [MIT License](LICENSE).
+
